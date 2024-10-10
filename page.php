@@ -28,7 +28,7 @@ the_post();
             <div id="post-<?php the_ID(); ?>" class="container py-5">
                 <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
                     <h1 class="display-4 mb-4"><?php the_title(); ?></h1>
-                    <p class="mb-0 text-dark"><?php the_excerpt(); ?></p>
+                    <!-- excerpt -->
                 </div>
                 <div class="row g-4 justify-content-center">
                     <?php
