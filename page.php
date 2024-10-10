@@ -6,40 +6,58 @@
  */
 
 get_header();
-
+get_template_part( 'topbar');
 the_post();
 ?>
-<div class="row">
-	<div class="col-md-8 order-md-2 col-sm-12">
-		<div id="post-<?php the_ID(); ?>" <?php post_class( 'content' ); ?>>
-			<h1 class="entry-title"><?php the_title(); ?></h1>
-			<?php
-				the_content();
+		<!-- Header Start -->
+		<div class="container-fluid bg-breadcrumb">
+            <div class="container text-center py-5" style="max-width: 900px;">
+                <h4 class="text-white display-4 mb-4 wow fadeInDown" data-wow-delay="0.1s"><?php the_title(); ?></h4>
+                <ol class="breadcrumb d-flex justify-content-center mb-0 wow fadeInDown" data-wow-delay="0.3s">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item"><a href="#">Pages</a></li>
+                    <li class="breadcrumb-item active text-primary"><?php the_title(); ?></li>
+                </ol>    
+            </div>
+        </div>
+        <!-- Header End -->
 
-				wp_link_pages(
-					array(
-						'before'   => '<nav class="page-links" aria-label="' . esc_attr__( 'Page', 'ryc' ) . '">',
-						'after'    => '</nav>',
-						'pagelink' => esc_html__( 'Page %', 'ryc' ),
-					)
-				);
-				edit_post_link(
-					esc_attr__( 'Edit', 'ryc' ),
-					'<span class="edit-link">',
-					'</span>'
-				);
+
+        <!-- Page Start -->
+        <div class="container-fluid service py-5">
+            <div id="post-<?php the_ID(); ?>" class="container py-5">
+                <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
+                    <h1 class="display-4 mb-4"><?php the_title(); ?></h1>
+                    <p class="mb-0 text-dark"><?php the_excerpt(); ?></p>
+                </div>
+                <div class="row g-4 justify-content-center">
+                    <?php
+					the_content();
+
+					wp_link_pages(
+						array(
+							'before'   => '<nav class="page-links" aria-label="' . esc_attr__( 'Page', 'ryc' ) . '">',
+							'after'    => '</nav>',
+							'pagelink' => esc_html__( 'Page %', 'ryc' ),
+						)
+					);
+					edit_post_link(
+						esc_attr__( 'Edit', 'ryc' ),
+						'<span class="edit-link">',
+						'</span>'
+					);
+				?>
+				</div>
+			<?php
+				// If comments are open or we have at least one comment, load up the comment template.
+				if ( comments_open() || get_comments_number() ) {
+					comments_template();
+				}
 			?>
 		</div><!-- /#post-<?php the_ID(); ?> -->
+		</div><!-- /.col -->
 		<?php
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) {
-				comments_template();
-			}
+			get_sidebar();
 		?>
-	</div><!-- /.col -->
-	<?php
-		get_sidebar();
-	?>
-</div><!-- /.row -->
 <?php
 get_footer();

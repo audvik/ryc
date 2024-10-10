@@ -280,10 +280,24 @@ function ryc_widgets_init() {
 		array(
 			'name'          => 'Third Widget Area (Footer)',
 			'id'            => 'third_widget_area',
+			'class'			=> 'footer-item',
 			'before_widget' => '',
 			'after_widget'  => '',
-			'before_title'  => '<h3 class="widget-title">',
-			'after_title'   => '</h3>',
+			'before_title'  => '<h4 class="text-white mb-4">',
+			'after_title'   => '</h4>',
+		)
+	);
+
+	// Area 4.
+	register_sidebar(
+		array(
+			'name'          => 'Forth Widget Area (Footer)',
+			'id'            => 'forth_widget_area',
+			'class'			=> 'footer-item',
+			'before_widget' => '',
+			'after_widget'  => '',
+			'before_title'  => '<h4 class="text-white mb-4">',
+			'after_title'   => '</h4>',
 		)
 	);
 }
@@ -562,3 +576,5 @@ function ryc_scripts_loader() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'ryc_scripts_loader' );
+// manish
+add_post_type_support( 'page', 'excerpt' );
