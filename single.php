@@ -27,7 +27,7 @@ if ( $count_posts->publish > '1' ) :
 	$prev_post = get_previous_post();
 ?>
 <hr class="mt-5">
-<div class="post-navigation d-flex justify-content-between">
+<div class="container-fluid post-navigation d-flex justify-content-between py-2">
 	<?php
 		if ( $prev_post ) {
 			$prev_title = get_the_title( $prev_post->ID );

@@ -39,7 +39,7 @@
         <div class="container-fluid nav-bar px-0 px-lg-4 py-lg-0">
             <div class="container">
                 <nav class="navbar navbar-expand-lg navbar-light"> 
-                    <a href="#" class="navbar-brand d-flex p-0">
+                    <a href="/" class="navbar-brand d-flex p-0">
                         <img class="w-4 h-4" src="<?php echo get_template_directory_uri();?>/assets/img/ryc-logo.png" alt="Logo">
                         <h1 class="text-primary mb-0">Ratauli</h1>
                     </a>
@@ -62,11 +62,11 @@
 					    ?>
                         <div class="nav-btn px-3">
                             <button class="btn-search btn btn-primary btn-md-square rounded-circle flex-shrink-0" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search"></i></button>
-                            <a href="#" class="btn btn-primary rounded-pill py-2 px-4 ms-3 flex-shrink-0"> Team Login</a>
+                            <a href="https://webmail.dreamhost.com" class="btn btn-primary rounded-pill py-2 px-4 ms-3 flex-shrink-0"> Team Login</a>
                         </div>
                     </div>
                     <div class="d-none d-xl-flex flex-shrink-0 ps-4">
-                        <a href="#" class="btn btn-light btn-lg-square rounded-circle position-relative wow tada" data-wow-delay=".9s">
+                        <a href="https://maps.app.goo.gl/vCjLmEnt6cNYWWDh9" class="btn btn-light btn-lg-square rounded-circle position-relative wow tada" data-wow-delay=".9s">
                             <i class="fa fa-map-marker-alt fa-2x"></i>
                             <div class="position-absolute" style="top: 7px; right: 12px;">
                                 <span><i class="fa fa-globe text-danger"></i></span>
@@ -74,7 +74,7 @@
                         </a>
                         <div class="d-flex flex-column ms-3">
                             <span>Visit Ratauli</span>
-                            <a href="#"><span class="text-dark">Map Location</span></a>
+                            <a href="https://maps.app.goo.gl/vCjLmEnt6cNYWWDh9"><span class="text-dark">Map Location</span></a>
                         </div>
                     </div>
                 </nav>
