@@ -1,43 +1,32 @@
 <?php
-/**
- * The Template for displaying Author pages.
- */
+// Check if a user is logged in
+if ( is_user_logged_in() ) {
+    // Get the current logged-in user
+    $current_user = wp_get_current_user();
+	//$current_user_id = $current_user->ID;
+    $username = $current_user->user_login; // Store the username in a variable
+	// Get the URL of the user's author page
+	//$user_author_url = get_author_posts_url($current_user_id);
+	//print_r($user_author_url);
+    // Load the template part dynamically based on the username
+	get_header();
+	get_template_part( 'topbar');?>
 
-get_header();
+    <main>
+        <?php get_template_part( 'author/mail', $username );?>
+	</main>
 
-if ( have_posts() ) :
-	/**
-	 * Queue the first post, that way we know
-	 * what author we're dealing with (if that is the case).
-	 *
-	 * We reset this later so we can run the loop
-	 * properly with a call to rewind_posts().
-	 */
-	the_post();
+    <?php get_footer();
+} else {
+    // If the logged-in user is trying to view another author's page, redirect or show error message
+    if (is_user_logged_in()) {
+        // Redirect the user to their own author page
+        wp_redirect(get_author_posts_url($current_user));
+        exit;
+    } else {
+        // If the user is not logged in, show an error message or redirect to login page
+        wp_redirect(wp_login_url());
+        exit;
+    }
+}
 ?>
-	<header class="page-header">
-		<h1 class="page-title author">
-			<?php
-				printf( esc_html__( 'Author Archives: %s', 'ryc' ), get_the_author() );
-			?>
-		</h1>
-	</header>
-<?php
-	get_template_part( 'author', 'bio' );
-
-	/**
-	 * Since we called the_post() above, we need to
-	 * rewind the loop back to the beginning that way
-	 * we can run the loop properly, in full.
-	 */
-	rewind_posts();
-
-	get_template_part( 'archive', 'loop' );
-else :
-	// 404.
-	get_template_part( 'content', 'none' );
-endif;
-
-wp_reset_postdata(); // End of the loop.
-
-get_footer();

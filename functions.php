@@ -578,3 +578,39 @@ function ryc_scripts_loader() {
 add_action( 'wp_enqueue_scripts', 'ryc_scripts_loader' );
 // manish
 add_post_type_support( 'page', 'excerpt' );
+
+function remove_dashboard_widgets() {
+    global $wp_meta_boxes;
+
+    // WordPress default widgets
+    //unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_activity']);     // Activity Widget
+    unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_right_now']);    // At a Glance Widget
+    unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_recent_comments']); // Recent Comments Widget
+    unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_incoming_links']); // Incoming Links Widget
+    unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_plugins']);      // Plugins Widget
+    unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_quick_press']);    // Quick Draft Widget
+    unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_recent_drafts']);  // Recent Drafts Widget
+    unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_primary']);        // WordPress News Widget
+    unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_secondary']);      // Secondary Widget
+}
+
+add_action('wp_dashboard_setup', 'remove_dashboard_widgets');
+
+function custom_dashboard_widget() {
+	$author_link = get_author_posts_url(get_current_user_id());
+    // Widget content
+    echo '<h2>Welcome to Your Custom Dashboard!</h2>';
+    echo '<p>This is a custom widget with some useful information and a link.</p>';
+	echo '<a href="' . esc_url($author_link) . '" class="button-primary" target="_blank">Visit Your Author Page</a>';
+}
+
+// Function to add the widget
+function add_custom_dashboard_widget() {
+    wp_add_dashboard_widget(
+        'custom_dashboard_widget',         // Widget slug
+        'Custom Admin Widget',             // Title
+        'custom_dashboard_widget'          // Display function
+    );
+}
+
+add_action('wp_dashboard_setup', 'add_custom_dashboard_widget');
