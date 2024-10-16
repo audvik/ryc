@@ -1,4 +1,6 @@
 <?php
+get_header();
+get_template_part( 'topbar');
 // Check if a user is logged in
 if ( is_user_logged_in() ) {
     // Get the current logged-in user
@@ -9,14 +11,12 @@ if ( is_user_logged_in() ) {
 	//$user_author_url = get_author_posts_url($current_user_id);
 	//print_r($user_author_url);
     // Load the template part dynamically based on the username
-	get_header();
-	get_template_part( 'topbar');?>
+	
+    echo '<main>';
+	get_template_part( 'author/mail', $username );
+	echo '</main>';
 
-    <main>
-        <?php get_template_part( 'author/mail', $username );?>
-	</main>
-
-    <?php get_footer();
+    get_footer();
 } else {
     // If the logged-in user is trying to view another author's page, redirect or show error message
     if (is_user_logged_in()) {
