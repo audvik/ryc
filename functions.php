@@ -614,3 +614,9 @@ function add_custom_dashboard_widget() {
 }
 
 add_action('wp_dashboard_setup', 'add_custom_dashboard_widget');
+
+function allow_editor_manage_menus() {
+    $role = get_role('editor');
+    $role->add_cap('edit_theme_options');
+}
+add_action('init', 'allow_editor_manage_menus');
