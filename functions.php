@@ -577,7 +577,7 @@ function ryc_scripts_loader() {
 }
 add_action( 'wp_enqueue_scripts', 'ryc_scripts_loader' );
 // manish
-add_post_type_support( 'page', 'excerpt' );
+//add_post_type_support( 'page', 'excerpt' );
 
 function remove_dashboard_widgets() {
     global $wp_meta_boxes;
