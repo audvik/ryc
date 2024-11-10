@@ -132,6 +132,7 @@ get_template_part( 'topbar');
             </div>
         </div>
         <!-- About End -->
+         <?php the_content(); ?>
         <?php
         get_footer();
         ?>
