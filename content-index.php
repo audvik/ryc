@@ -35,7 +35,7 @@
 					}
 
 					if ( is_search() ) {
-						the_excerpt();
+						the_title();
 					} else {
 						the_content();
 					}

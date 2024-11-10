@@ -599,16 +599,16 @@ add_action('wp_dashboard_setup', 'remove_dashboard_widgets');
 function custom_dashboard_widget() {
 	$author_link = get_author_posts_url(get_current_user_id());
     // Widget content
-    echo '<h2>Welcome to Your Custom Dashboard!</h2>';
-    echo '<p>This is a custom widget with some useful information and a link.</p>';
-	echo '<a href="' . esc_url($author_link) . '" class="button-primary" target="_blank">Visit Your Author Page</a>';
+    echo '<h2>RYC members & Staffs!</h2>';
+    echo '<p>Check your old e-mails here.</p>';
+	echo '<a href="' . esc_url($author_link) . '" class="button-primary" target="_blank">Old e-mails</a>';
 }
 
 // Function to add the widget
 function add_custom_dashboard_widget() {
     wp_add_dashboard_widget(
         'custom_dashboard_widget',         // Widget slug
-        'Custom Admin Widget',             // Title
+        'RYC old e-mails',             // Title
         'custom_dashboard_widget'          // Display function
     );
 }
