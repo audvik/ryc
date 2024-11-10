@@ -132,7 +132,11 @@ get_template_part( 'topbar');
             </div>
         </div>
         <!-- About End -->
+        <div class="container-fluid about py-5">
+        <div class="container py-5">
          <?php the_content(); ?>
+        </div>
+        </div>
         <?php
         get_footer();
         ?>
