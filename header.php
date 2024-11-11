@@ -24,7 +24,7 @@
 
 
         <!-- Customized Bootstrap Stylesheet -->
-        <link href="<?php echo get_template_directory_uri();?>/raw/css/bootstrap.min.css" rel="stylesheet">
+        <link href="<?php echo get_template_directory_uri();?>/raw/css/index.min.css" rel="stylesheet">
 
         <!-- Template Stylesheet -->
         <link href="<?php echo get_template_directory_uri();?>/raw/css/style.css" rel="stylesheet">
