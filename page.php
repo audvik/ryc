@@ -24,8 +24,8 @@ the_post();
 
 
         <!-- Page Start -->
-        <div class="container-fluid service py-5">
-            <div id="post-<?php the_ID(); ?>" class="container py-5">
+        <div class="container-fluid overflow-hidden service py-5">
+            <div id="post-<?php the_ID(); ?>" class="container overflow-hidden py-5">
                 <div class="row g-4 justify-content-center">
                     <?php
 					the_content();
